@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>
         SCORING
     </title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <form method="post">
-    	<input type="text" name="customer_index" placeholder="customer_index"/>
-        <input type="submit"/>
+<div class="login">
+    <h1>Predict probability to not repay the loan</h1>
+
+    <form action="{{ url_for('predict')}}" method="post">
+    	<input type="text" name="customer_index"
+               placeholder="please enter the customer index between 0 and 48743" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
      <p>
-         {{ prediction_text }}
+         {{ prediction_text, shap_graph }}
      </p>
+</div>
 </body>
 </html>
