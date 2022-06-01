@@ -31,7 +31,7 @@ model = joblib.load("C:/Users/33624/model_lgbm_1.joblib")
 # render default webpage
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('layout.html')
 
 
 # connect and run the python backend
