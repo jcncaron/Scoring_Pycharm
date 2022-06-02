@@ -36,10 +36,10 @@ def predict_probability(X_test, test_df):
     cust_number = test_df['SK_ID_CURR'][0]
     if result < 0.09:
         prediction = f'Probability of not repaying the loan = {result}. ' \
-                     f'Customer n°{cust_number} should be able to repay his loan'
+                     f'Credit application of Customer n°{cust_number} is accepted'
     else:
         prediction = f'Probability of not repaying the loan = {result}. ' \
-                     f'Customer n°{cust_number} should not be able to repay his loan'
+                     f'Credit application of Customer n°{cust_number} is rejected'
 
     return prediction
 
