@@ -76,9 +76,7 @@ def predict():
     test_df, X_test = prepare_customer_data(customer_index=user_input)
     # Predict probability of not repaying the loan for random customer
     prediction = predict_probability(X_test, test_df)
-    d_plot = shap_d_plot(X_test)
-    return render_template('layout.html', prediction_text=prediction, shap_graph=d_plot.html())
-
+    return render_template('layout.html', prediction_text=prediction)
 
 if __name__ == '__main__':
     app.run(debug=True)
