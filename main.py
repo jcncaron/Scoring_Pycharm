@@ -1,9 +1,7 @@
-import flask
-from flask import render_template, request
+from flask import Flask, render_template, request
 import joblib
 import pandas as pd
 import numpy as np
-import shap
 
 # Load machine learning model
 model = joblib.load("C:/Users/33624/model_lgbm_1.joblib")
@@ -45,21 +43,8 @@ def predict_probability(X_test, test_df):
 
     return prediction
 
-
-# Function to create shap decision plot
-def shap_d_plot(X_test):
-    explainer = shap.TreeExplainer(model)
-    X_test_0 = X_test.iloc[0, :].to_numpy().reshape((1, 795))
-    shap_values_test = explainer.shap_values(X_test_0)
-    d_plot = shap.decision_plot(base_value=explainer.expected_value[0],
-                                shap_values=shap_values_test[0],
-                                features=X_test,
-                                feature_display_range=slice(-1, -11, -1))
-    return d_plot
-
-
 # Create app object
-app = flask.Flask(__name__)
+app = Flask(__name__)
 
 
 # render default webpage
