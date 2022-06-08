@@ -2,6 +2,7 @@
 import pandas as pd
 from lightgbm import LGBMClassifier
 import joblib
+import numpy as np
 
 # Import train and test csv files
 print('Importing train and test csv files...')
@@ -9,6 +10,10 @@ train_df_path = "C:/Users/33624/train_df.csv"
 train_df = pd.read_csv("C:/Users/33624/train_df.csv")
 test_df_path = "C:/Users/33624/test_df.csv"
 test_df = pd.read_csv("C:/Users/33624/test_df.csv")
+
+# Create adn save a dictionary with indexes as keys and 'SK_ID_CURR' as values
+dict_1 = test_df['SK_ID_CURR'].to_dict()
+np.save('dict_idx_SK_ID_CURR.npy', dict_1)
 
 # Remove special characters in train_df and test_df feature names
 print('Removing special characters in features names...')

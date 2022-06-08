@@ -16,8 +16,8 @@
     <h1>Predict probability to not repay the loan</h1>
 
     <form action="{{ url_for('predict')}}" method="post">
-    	<input type="text" name="customer_index"
-               placeholder="please enter a customer index between 0 and 48743" required="required" />
+    	<input type="text" name="customer_id"
+               placeholder="please enter a customer ID" required="required" />
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
      <p>
