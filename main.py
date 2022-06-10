@@ -5,8 +5,7 @@ import numpy as np
 import pickle
 
 # Load machine learning model
-model = joblib.load("C:/Users/33624/model_lgbm_1.joblib")
-
+model = joblib.load("model_lgbm_1.joblib")
 
 # function to prepare data for 1 customer
 def prepare_customer_data(customer_id):
@@ -18,7 +17,7 @@ def prepare_customer_data(customer_id):
     # Save customer index
     customer_index = list_keys[list_values.index(customer_id)]
     # Import just 1 line (1 customer) of test_df
-    test_df_path = "C:/Users/33624/test_df.csv"
+    test_df_path = "test_df_1000.csv"
     test_df = pd.read_csv(test_df_path,
                           nrows=1,
                           skiprows=(range(1, customer_index + 1)),
