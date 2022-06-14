@@ -5,23 +5,36 @@
     <title>
         SCORING
     </title>
-    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'
+          type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet'
+      type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet'
+      type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300'
+      rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 <div class="login">
-    <h1>Predict probability to not repay the loan</h1>
+    <h1>Predicting probability of not repaying the loan</h1>
 
     <form action="{{ url_for('predict')}}" method="post">
     	<input type="text" name="customer_id"
-               placeholder="please enter a customer ID" required="required" />
+               placeholder="Enter a customer ID" required="required" />
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
      <p>
+         <h2> {{ customer_text }} </h2>
+         <br>
          {{ prediction_text }}
+         <br>
+         <br>
+         {{ credit_text }}
+        <br>
+        <br>
+        <a href="https://scoring-dashboard-caron.herokuapp.com/" target="_blank">
+            Click here for further details </a>
      </p>
 </div>
 </body>
